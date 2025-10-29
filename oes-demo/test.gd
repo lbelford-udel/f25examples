@@ -1,34 +1,37 @@
 extends Node2D
 
+## EXPRESSIONS AND OPERATIONS EXAMPLES
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Part I: Math Operations
+	# Creating variables
 	var health = 5000
 	var experience = 11567
 	var level = 0
 	var move_speed = 2.5
 	
+	# Printing values and variables
 	print("Print Literal: " + str(100))
 	print(health)
 	
-	#+
+	# + addition
 	var addition = 40 + 2
 	print("Adding example: " + str(addition))
 	
-	# -
+	# - subtraction
 	var subtract = 100.9 - 25.0
 	print(subtract)
 	
-	# *
+	# * multiplication
 	var mult = 4 * 4
 	print(mult)
 	
-	# int division
+	# / int division
 	var division = 4 / 2
 	print(division)
 	
-	# float division
+	# / float division
 	var division_uneven = 5.0 / 2
 	print(division_uneven)
 	
@@ -46,20 +49,21 @@ func _ready():
 	
 	var jump_counter = 4
 	jump_counter = jump_counter + 1
-	# Variable below would be better as a bool
-	#var can_flip = jump_counter % 5
+	# Variable below would be better as a bool (see lower in Booleans section)
+	# var can_flip = jump_counter % 5
 	
-	# Level up math
+	# Level up math - int division
 	level = experience / 1000
-	#health = 50 * level
+	# increasing health by 50 per level
 	health = health + 50 * level
-	print (level)
+	print(level)
 	print(health)
 	
-	# Part II: Strings -- Concatenation
+	# Part II: Strings 
 	var phrase = "Hello, World!"
 	print(phrase)
 	
+	# Concatenation -- Sticking strings together
 	var word_by_word = "Hello," + " " + "World!"
 	print(word_by_word)
 	
@@ -80,7 +84,10 @@ func _ready():
 	print(50 >= 50) # True
 	print (50 > 50) # False
 	print (20 <= 25) # False
+	print (15 == 15) # True
+	print (15 != 24) # False
 	
+	# From above -- using modulo, and then comparing result against 0 using ==
 	var can_flip = jump_counter % 5 == 0
 	print(can_flip)
 	
@@ -95,10 +102,10 @@ func _ready():
 	var and_ex_3 = false and true
 	var and_ex_4 = false and false
 	
-	print(and_ex_1)
-	print(and_ex_2)
-	print(and_ex_3)
-	print(and_ex_4)
+	print(and_ex_1) # true
+	print(and_ex_2) # false
+	print(and_ex_3) # false
+	print(and_ex_4) # false
 	
 	var double_jump_unlocked = true
 	var is_in_air = true
@@ -114,66 +121,11 @@ func _ready():
 	var or_ex_3 = false or true
 	var or_ex_4 = false or false
 	
-	print(or_ex_1)
-	print(or_ex_2)
-	print(or_ex_3)
-	print(or_ex_4)
+	print(or_ex_1) # true
+	print(or_ex_2) # true
+	print(or_ex_3) # true
+	print(or_ex_4) # false
 	
+	# Not-- Inverts the boolean value (false becomes true, true becomes false)
 	var not_example = not false
 	print("Not example" + str(not_example))
-	
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-
-
-
-
-
-
-
-"""
-Math Operations
-	1. Add/subtract
-	2. Mult
-	3. Divide
-	4. Uh-oh! Integer division!
-	5. Modulo (Remainder)
-"""
-
-"""
-Expressions and Substitution
-	1. Multiple operations in one line
-	2. Statements contain expressions
-	3. Expressions can contain other expressions
-	4. Solve one step at a time with substitution
-"""
-
-"""
-Operations on other types
-	1. String concatenation
-	2. Comparison Operators
-		1. >
-		2. <
-		3. >=
-		4. <=
-		5. ==
-		6. !=
-	3. Boolean Algebra
-	
-"""
-
-"""
-Using Variables in Place of Values
-"""
-
-
-# Addition
-# Subtraction
-# Mult
-# Division (Int Division
