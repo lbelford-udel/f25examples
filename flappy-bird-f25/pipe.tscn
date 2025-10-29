@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://4at6vgv6l0st"]
+
+[ext_resource type="Script" uid="uid://yoyaqeobk6mb" path="res://pipe.gd" id="1_bepn3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_sj7mh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bepn3"]
+size = Vector2(76, 300)
+
+[node name="Pipe" type="Area2D"]
+script = ExtResource("1_bepn3")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+self_modulate = Color(0, 0.5981213, 0.17480609, 1)
+scale = Vector2(76, 300)
+mesh = SubResource("BoxMesh_sj7mh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bepn3")

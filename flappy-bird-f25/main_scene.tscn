@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://bx4wrhlprinuy"]
+
+[ext_resource type="PackedScene" uid="uid://c67lvl4tja0x1" path="res://player_bird.tscn" id="1_0f027"]
+[ext_resource type="PackedScene" uid="uid://4at6vgv6l0st" path="res://pipe.tscn" id="2_2c62f"]
+[ext_resource type="PackedScene" uid="uid://m6a2jd38ourq" path="res://pipe_pair.tscn" id="3_gyfs4"]
+[ext_resource type="PackedScene" uid="uid://cqbsc1mar4gv3" path="res://user_interface.tscn" id="4_d5x1h"]
+[ext_resource type="Script" uid="uid://dctsss3pn31h1" path="res://pipe_recycle.gd" id="5_8mm7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0f027"]
+size = Vector2(1167, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5x1h"]
+size = Vector2(161, 635)
+
+[node name="Main Scene" type="Node2D"]
+
+[node name="PlayerBird" parent="." instance=ExtResource("1_0f027")]
+position = Vector2(203, 309)
+
+[node name="Label" type="Label" parent="PlayerBird"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Killbox" type="Area2D" parent="."]
+position = Vector2(562, 647)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
+position = Vector2(16.5, 30)
+shape = SubResource("RectangleShape2D_0f027")
+debug_color = Color(0.9257123, 0.17656204, 0.5238594, 0.41960785)
+
+[node name="Pipe" parent="." instance=ExtResource("2_2c62f")]
+position = Vector2(814, -475)
+
+[node name="Pipe2" parent="." instance=ExtResource("2_2c62f")]
+position = Vector2(1103, -483)
+
+[node name="PipePair" parent="." instance=ExtResource("3_gyfs4")]
+position = Vector2(892, 247)
+rotation = 0.0009962779
+
+[node name="PipePair2" parent="." instance=ExtResource("3_gyfs4")]
+position = Vector2(1216.9998, 230)
+
+[node name="PipePair3" parent="." instance=ExtResource("3_gyfs4")]
+position = Vector2(1578.9998, 237)
+
+[node name="PipePair4" parent="." instance=ExtResource("3_gyfs4")]
+position = Vector2(1900.9998, 240)
+
+[node name="UserInterface" parent="." instance=ExtResource("4_d5x1h")]
+
+[node name="PipeRecycle" type="Area2D" parent="."]
+script = ExtResource("5_8mm7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeRecycle"]
+position = Vector2(-131, 316)
+shape = SubResource("RectangleShape2D_d5x1h")
+debug_color = Color(0.29823002, 0.60846, 0.4567966, 0.41960785)
+
+[node name="RespawnPoint" type="Marker2D" parent="."]
+position = Vector2(1401, 242)
+
+[connection signal="body_entered" from="Killbox" to="PlayerBird" method="_on_killbox_body_entered"]
+[connection signal="body_entered" from="Pipe" to="PlayerBird" method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="Pipe2" to="PlayerBird" method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipePair/Pipe" to="PlayerBird" method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipePair/Pipe2" to="PlayerBird" method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipePair/ScoreArea" to="PlayerBird" method="_on_score_area_body_entered"]
+[connection signal="body_entered" from="PipePair2/Pipe" to="PlayerBird" method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipePair2/Pipe2" to="PlayerBird" method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipePair2/ScoreArea" to="PlayerBird" method="_on_score_area_body_entered"]
+[connection signal="body_entered" from="PipePair3/Pipe" to="PlayerBird" method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipePair3/Pipe2" to="PlayerBird" method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipePair3/ScoreArea" to="PlayerBird" method="_on_score_area_body_entered"]
+[connection signal="body_entered" from="PipePair4/Pipe" to="PlayerBird" method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipePair4/Pipe2" to="PlayerBird" method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="PipePair4/ScoreArea" to="PlayerBird" method="_on_score_area_body_entered"]
+[connection signal="area_entered" from="PipeRecycle" to="PipeRecycle" method="_on_area_entered"]
+
+[editable path="PipePair"]
+[editable path="PipePair2"]
+[editable path="PipePair3"]
+[editable path="PipePair4"]
+[editable path="UserInterface"]

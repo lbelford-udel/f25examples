@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://m6a2jd38ourq"]
+
+[ext_resource type="Script" uid="uid://yoyaqeobk6mb" path="res://pipe.gd" id="1_bmsf8"]
+[ext_resource type="PackedScene" uid="uid://4at6vgv6l0st" path="res://pipe.tscn" id="2_bec1m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nuf67"]
+size = Vector2(20, 182)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmsf8"]
+size = Vector2(150, 786)
+
+[node name="PipePair" type="Area2D"]
+script = ExtResource("1_bmsf8")
+
+[node name="Pipe" parent="." instance=ExtResource("2_bec1m")]
+position = Vector2(0, -240)
+script = null
+
+[node name="Pipe2" parent="." instance=ExtResource("2_bec1m")]
+position = Vector2(0, 239)
+script = null
+
+[node name="ScoreArea" type="Area2D" parent="."]
+position = Vector2(0, -240)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(0, 241)
+shape = SubResource("RectangleShape2D_nuf67")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(13, -4)
+shape = SubResource("RectangleShape2D_bmsf8")
+debug_color = Color(0.52234864, 0.5389445, 0.5491901, 0.41960785)

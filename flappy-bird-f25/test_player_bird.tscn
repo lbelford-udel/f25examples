@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bk7nov8kl5qtg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yi00k"]
+albedo_color = Color(0.86448044, 0.8219746, 0.36759362, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_042fs"]
+material = SubResource("StandardMaterial3D_yi00k")
+
+[sub_resource type="MeshTexture" id="MeshTexture_7f3cl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_chniw"]
+radius = 21.377558
+
+[node name="PlayerBird" type="Area2D"]
+
+[node name="PlaceholderVisual" type="MeshInstance2D" parent="."]
+modulate = Color(1, 1, 0.12941177, 1)
+scale = Vector2(50, 42)
+mesh = SubResource("SphereMesh_042fs")
+texture = SubResource("MeshTexture_7f3cl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_chniw")
+debug_color = Color(0.8477523, 0.3601219, 0.29533675, 0.41960785)

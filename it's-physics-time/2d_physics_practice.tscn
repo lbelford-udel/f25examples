@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://cugx1b45avnws"]
+
+[ext_resource type="Script" uid="uid://dqra04gahpird" path="res://test_player.gd" id="1_lhgb3"]
+[ext_resource type="Texture2D" uid="uid://5xxenjmyd8eq" path="res://icon.svg" id="2_260iy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pbg0q"]
+size = Vector2(135, 130)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhgb3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_260iy"]
+material = SubResource("StandardMaterial3D_lhgb3")
+
+[sub_resource type="Gradient" id="Gradient_pbg0q"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ys13i"]
+gradient = SubResource("Gradient_pbg0q")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qmjk"]
+size = Vector2(338, 62)
+
+[node name="2D Physics Practice" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(629, 113)
+script = ExtResource("1_lhgb3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_260iy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(1.5, -1)
+shape = SubResource("RectangleShape2D_pbg0q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+mesh = SubResource("BoxMesh_260iy")
+texture = SubResource("GradientTexture1D_ys13i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(620, 449)
+shape = SubResource("RectangleShape2D_7qmjk")

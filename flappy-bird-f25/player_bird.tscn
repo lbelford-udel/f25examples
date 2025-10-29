@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c67lvl4tja0x1"]
+
+[ext_resource type="Script" uid="uid://cdn6h2x0ak2w0" path="res://player_bird.gd" id="1_042fs"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yi00k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_042fs"]
+radius = 21.023796
+
+[node name="PlayerBird" type="CharacterBody2D"]
+script = ExtResource("1_042fs")
+
+[node name="PlaceholderVisual" type="MeshInstance2D" parent="."]
+self_modulate = Color(0.79869473, 0.8436704, 0.22664484, 1)
+scale = Vector2(50, 42)
+mesh = SubResource("SphereMesh_yi00k")
+
+[node name="PlayerHitbox" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_042fs")
+debug_color = Color(0.80222845, 0.413263, 0.19567457, 0.41960785)
