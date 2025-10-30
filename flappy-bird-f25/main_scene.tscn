@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bx4wrhlprinuy"]
+[gd_scene load_steps=9 format=3 uid="uid://bx4wrhlprinuy"]
 
 [ext_resource type="PackedScene" uid="uid://c67lvl4tja0x1" path="res://player_bird.tscn" id="1_0f027"]
+[ext_resource type="Script" uid="uid://bq2ma05lr5p8a" path="res://game_manager.gd" id="1_hq1ik"]
 [ext_resource type="PackedScene" uid="uid://4at6vgv6l0st" path="res://pipe.tscn" id="2_2c62f"]
 [ext_resource type="PackedScene" uid="uid://m6a2jd38ourq" path="res://pipe_pair.tscn" id="3_gyfs4"]
 [ext_resource type="PackedScene" uid="uid://cqbsc1mar4gv3" path="res://user_interface.tscn" id="4_d5x1h"]
@@ -13,13 +14,15 @@ size = Vector2(1167, 80)
 size = Vector2(161, 635)
 
 [node name="Main Scene" type="Node2D"]
+script = ExtResource("1_hq1ik")
 
 [node name="PlayerBird" parent="." instance=ExtResource("1_0f027")]
-position = Vector2(203, 309)
+position = Vector2(194, 574)
 
 [node name="Label" type="Label" parent="PlayerBird"]
 offset_right = 40.0
 offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Killbox" type="Area2D" parent="."]
 position = Vector2(562, 647)

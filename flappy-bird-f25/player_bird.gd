@@ -1,12 +1,7 @@
 extends CharacterBody2D
 
-
 @export var JUMP_VELOCITY = -400.0
-
 var game_started = false
-
-var player_name = "Default"
-
 var score = 0
 
 func _physics_process(delta):
@@ -18,7 +13,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("flap"):
 		velocity.y = JUMP_VELOCITY
 		game_started = true
-		#JUMP_VELOCITY = JUMP_VELOCITY - 100.0
 
 	move_and_slide()
 
